@@ -15,7 +15,6 @@ const Testimoni = () => {
     return (
       <>
         <ScrollView style={styles.container}>
-          {/* Header */}
           <View style={styles.header}>
           <TouchableOpacity style={styles.circle} onPress={() => navigation.goBack()}>
             <AntDesign name="arrowleft" size={20} color="#2A6BA0" />
@@ -33,7 +32,6 @@ const Testimoni = () => {
             />
           </View>
   
-          {/* Content */}
           <View style={styles.content}>
             <View style={styles.infoRow}>
               <FontAwesome name="clock-o" size={16} color="green" />
@@ -47,7 +45,6 @@ const Testimoni = () => {
             <Text style={styles.cardTitle}>Testimoni Alumni</Text>
           </View>
   
-          {/* Testimoni Card 1 */}
           <View style={styles.card}>
             <LinearGradient
               colors={['#3470A2', '#63ABE6']}
@@ -85,7 +82,6 @@ const Testimoni = () => {
             </LinearGradient>
           </View>
   
-          {/* Testimoni Card 2 */}
           <View style={styles.card}>
             <LinearGradient
               colors={['#3470A2', '#63ABE6']}
@@ -124,7 +120,6 @@ const Testimoni = () => {
           </View>
         </ScrollView>
   
-        {/* Footer */}
         <View style={styles.footer}>
           <View style={styles.footerButtonGroup}>
             <TouchableOpacity

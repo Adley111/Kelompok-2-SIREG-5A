@@ -58,7 +58,6 @@ const Semuajawaban = ({ navigation }) => (
           </View>
         </View>
 
-        {/* Additional Cards */}
         <View style={styles.card}>
           <View style={styles.userInfoContainer}>
             <Image style={styles.profileImage} source={require('./assets/profile 2.png')} />

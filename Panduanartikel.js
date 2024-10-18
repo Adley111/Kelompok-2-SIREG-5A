@@ -58,7 +58,6 @@ const CareerGuide = () => {
         </LinearGradient>
       </View>
 
-      {/* Recommended Articles */}
       <View style={styles.recommendedArticlesContainer}>
         <Text style={styles.recommendedArticlesTitle}>Rekomendasi artikel</Text>
         <View style={styles.articlesRow}>

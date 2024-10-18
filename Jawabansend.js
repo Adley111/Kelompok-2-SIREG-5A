@@ -79,7 +79,7 @@ const styles = StyleSheet.create({
     marginLeft: 20,
   },
   featureIconBackground: {
-    borderRadius: 100, // Membuat gradien melingkar
+    borderRadius: 100, 
     padding: 10,
     marginTop: 100,
   },
