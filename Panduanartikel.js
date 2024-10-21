@@ -3,10 +3,12 @@ import { View, Text, TextInput, Image, TouchableOpacity, StatusBar, StyleSheet }
 import { LinearGradient } from 'expo-linear-gradient';
 import { FontAwesome } from '@expo/vector-icons';
 import Ionicons from '@expo/vector-icons/Ionicons';
+import AntDesign from '@expo/vector-icons/AntDesign';
 import { useNavigation } from '@react-navigation/native';
 
 const CareerGuide = () => {
-    const navigation = useNavigation();
+  const navigation = useNavigation();
+
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" />
@@ -20,7 +22,9 @@ const CareerGuide = () => {
       >
         {/* Elemen kuning di pojok kiri atas */}
         <View style={styles.yellowCorner} />
-        <Ionicons name="arrow-back" size={24} onPress={() => navigation.goBack()} color="black" style={styles.backIcon} />
+        <TouchableOpacity style={styles.circle} onPress={() => navigation.goBack()}>
+          <AntDesign name="arrowleft" size={20} color="#2A6BA0" />
+        </TouchableOpacity>
         <Text style={styles.panduanKarir}>Panduan Karir</Text>
       </LinearGradient>
 
@@ -34,18 +38,16 @@ const CareerGuide = () => {
 
       {/* Career Guide Section */}
       <View style={styles.careerGuideContainer}>
-        <LinearGradient
-          colors={['#63ABE6', '#3470A2']}
-          style={styles.careerGuideSection}
-        >
+        <LinearGradient colors={['#63ABE6', '#3470A2']} style={styles.careerGuideSection}>
           <View style={styles.careerGuideTextContainer}>
-            <Text style={styles.careerGuideText}>Mulai langkah awal menuju kesuksesan karirmu!</Text>
+            <Text style={styles.careerGuideText}>
+              Mulai langkah awal menuju kesuksesan karirmu!
+            </Text>
             <Image
               source={require('./assets/cewe.png')}
               style={styles.careerGuideImage}
               resizeMode="contain"
-/>
-
+            />
           </View>
           <View style={styles.buttonsContainer}>
             <TouchableOpacity style={styles.artikelButton}>
@@ -58,39 +60,38 @@ const CareerGuide = () => {
         </LinearGradient>
       </View>
 
+      {/* Recommended Articles */}
       <View style={styles.recommendedArticlesContainer}>
         <Text style={styles.recommendedArticlesTitle}>Rekomendasi artikel</Text>
         <View style={styles.articlesRow}>
-        <TouchableOpacity onPress={() => navigation.navigate('Artikel')}>
-          <LinearGradient
-            colors={['#63ABE6', '#3470A2']} 
-            style={styles.articleCard} 
-          >
-            <Image
-              source={{ uri: 'https://storage.googleapis.com/a1aa/image/4LprTYReF8SZLSrOUm5n9Wexa0Qf8UADgFMbcLL8NrIYjDPnA.jpg' }}
-              style={styles.articleImage}
-            />
-            <View style={styles.articleTextContainer}>
-              <Text style={styles.articleTitle}>Tips dan Trik Membuat CV ATS</Text>
-              <Text style={styles.articleDescription}>Upgrade CV kamu mulai dari sekarang! dan temukan cara dalam pembuatannya</Text>
-            </View>
-          </LinearGradient>
-        </TouchableOpacity>
+          <TouchableOpacity onPress={() => navigation.navigate('Artikel')}>
+            <LinearGradient colors={['#63ABE6', '#3470A2']} style={styles.articleCard}>
+              <Image
+                source={{ uri: 'https://storage.googleapis.com/a1aa/image/4LprTYReF8SZLSrOUm5n9Wexa0Qf8UADgFMbcLL8NrIYjDPnA.jpg' }}
+                style={styles.articleImage}
+              />
+              <View style={styles.articleTextContainer}>
+                <Text style={styles.articleTitle}>Tips dan Trik Membuat CV ATS</Text>
+                <Text style={styles.articleDescription}>
+                  Upgrade CV kamu mulai dari sekarang! dan temukan cara dalam pembuatannya
+                </Text>
+              </View>
+            </LinearGradient>
+          </TouchableOpacity>
 
-        <TouchableOpacity onPress={() => navigation.navigate('Artikel')}>
-          <LinearGradient
-            colors={['#63ABE6', '#3470A2']}
-            style={styles.articleCard} 
-          >
-            <Image
-              source={{ uri: 'https://storage.googleapis.com/a1aa/image/JAsfkf1X60gn3UKUrogUXQ23yfixwtoP9o1cxxLDPd2WjDPnA.jpg' }}
-              style={styles.articleImage}
-            />
-            <View style={styles.articleTextContainer}>
-              <Text style={styles.articleTitle}>Tips dan Trik Membuat CV ATS</Text>
-              <Text style={styles.articleDescription}>Upgrade CV kamu mulai dari sekarang! dan temukan cara dalam pembuatannya</Text>
-            </View>
-          </LinearGradient>
+          <TouchableOpacity onPress={() => navigation.navigate('Artikel')}>
+            <LinearGradient colors={['#63ABE6', '#3470A2']} style={styles.articleCard}>
+              <Image
+                source={{ uri: 'https://storage.googleapis.com/a1aa/image/JAsfkf1X60gn3UKUrogUXQ23yfixwtoP9o1cxxLDPd2WjDPnA.jpg' }}
+                style={styles.articleImage}
+              />
+              <View style={styles.articleTextContainer}>
+                <Text style={styles.articleTitle}>Tips dan Trik Membuat CV ATS</Text>
+                <Text style={styles.articleDescription}>
+                  Upgrade CV kamu mulai dari sekarang! dan temukan cara dalam pembuatannya
+                </Text>
+              </View>
+            </LinearGradient>
           </TouchableOpacity>
         </View>
       </View>
@@ -147,18 +148,29 @@ const styles = StyleSheet.create({
     height: 130,
     backgroundColor: '#FFD500',
     borderBottomRightRadius: 500,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
   },
+ 
   panduanKarir: {
     fontSize: 35,
     fontWeight: 'bold',
     color: 'white',
     textAlign: 'right',
-    marginTop: 35,
+    position: 'absolute', 
+    top: 50, 
+    right: 20, 
   },
-  backIcon: {
-    position: 'absolute',
-    left: 20,
-    top: 20,
+  circle: {
+    width: 36,
+    height: 36,
+    borderRadius: 18,
+    backgroundColor: '#FFFF',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginLeft: 20,
+    marginTop: 30,
   },
   searchContainer: {
     marginHorizontal: 20,
@@ -240,8 +252,7 @@ const styles = StyleSheet.create({
   },
   recommendedArticlesContainer: {
     marginHorizontal: 20,
-    marginTop: 50, 
-    paddingBottom: 50,
+    paddingBottom: 130,
   },
   recommendedArticlesTitle: {
     fontSize: 18,
@@ -253,54 +264,60 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   articleCard: {
-    width: '48%',
-    borderRadius: 10,
+    borderRadius: 15,
     padding: 10,
     shadowColor: '#000',
     shadowOpacity: 0.1,
-    shadowRadius: 5,
-    elevation: 2,
+    shadowRadius: 10,
+    elevation: 5, 
+    width: 180,
+    height: 250
   },
   articleImage: {
-    width: '100%',
-    height: 80,
+    width: 160,
+    height: 100,
     borderRadius: 10,
-    marginBottom: 5,
+    marginBottom: 10,
   },
   articleTextContainer: {
-    padding: 5,
+    flex: 1,
   },
   articleTitle: {
     fontWeight: 'bold',
     color: 'white',
+    marginBottom: 5,
     textAlign: 'center',
   },
   articleDescription: {
-    fontSize: 12,
     color: 'white',
+    fontSize: 12,
     textAlign: 'center',
   },
   bottomNavigation: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
-    height: 70,
     backgroundColor: 'white',
-    shadowColor: '#000',
-    shadowOpacity: 0.2,
-    shadowRadius: 5,
-    elevation: 5,
+    paddingVertical: 10,
+    borderTopWidth: 1,
+    borderTopColor: '#e5e7eb',
+    position: 'absolute',
+    bottom: 0,
+    width: '100%',
   },
   navItem: {
+    justifyContent: 'center',
     alignItems: 'center',
   },
   navTextActive: {
-    fontSize: 12,
     color: '#FFD500',
+    fontSize: 12,
+    fontWeight: 'bold',
   },
   navText: {
-    fontSize: 12,
     color: '#9ca3af',
+    fontSize: 12,
+    fontWeight: 'bold',
   },
 });
 
