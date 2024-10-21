@@ -53,12 +53,11 @@ const Artikel = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <BannerComponent />
-      <ScrollView style={styles.content} contentContainerStyle={{ paddingBottom: 60 }}>
       <Image
         style={styles.image}
         source={require('./assets/cv 1.png')} 
       />
-      
+
       <View style={styles.content}>
         <Text style={styles.title}>Tips dan Trik Membuat CV ATS</Text>
       </View>
@@ -124,7 +123,6 @@ const Artikel = ({ navigation }) => {
         Terakhir, tapi tidak kalah penting, uji CV Anda menggunakan alat ATS yang tersedia secara online. Ini membantu 
         Anda melihat bagaimana CV Anda diproses oleh sistem dan memberi Anda kesempatan untuk melakukan perbaikan jika diperlukan.
       </Text>
-      </ScrollView>
 
       <View style={styles.footer}>
         <View style={styles.footerButtonGroup}>
@@ -150,6 +148,7 @@ const Artikel = ({ navigation }) => {
           </TouchableOpacity>
         </View>
       </View>
+
     </View>
   );
 };
@@ -231,7 +230,7 @@ const styles = StyleSheet.create({
     textAlign: 'right',
     color: 'white',
     fontSize: 32,
-    fontFamily: 'Outfit', 
+    fontFamily: 'Outfit', // Pastikan font ini di-load
     fontWeight: '700',
   },
   ellipse71: {
@@ -277,7 +276,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row', 
     alignItems: 'center', 
     top: 20,
-    left: 40,
+    left: 50,
   },
   nameText: {
     fontSize: 10,
@@ -302,7 +301,7 @@ const styles = StyleSheet.create({
     color: '#225580',
     textAlign: 'right',
     top: 5,
-    left: 303,
+    left: 313,
     width: 300,
   },
   text: {
@@ -314,7 +313,7 @@ const styles = StyleSheet.create({
     fontWeight: '400',
     lineHeight: 20,
     marginBottom: 10,
-    left: 40,
+    left: 50,
     top: 20,
     textAlign: 'justify',
   },

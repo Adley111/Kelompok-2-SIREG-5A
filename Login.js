@@ -34,7 +34,7 @@ function Login({ navigation }) {
       <Text style={styles.label}>Username</Text>
       <TextInput
         style={styles.input}
-        placeholder="Masukkan Username"
+        placeholder="Masukkan Username Anda"
         value={username}
         onChangeText={setUsername}
       />
@@ -42,7 +42,7 @@ function Login({ navigation }) {
       <Text style={styles.label}>Password</Text>
       <TextInput
         style={styles.input}
-        placeholder="Masukkan Password"
+        placeholder="Masukkan Password Anda"
         secureTextEntry
         value={password}
         onChangeText={setPassword}

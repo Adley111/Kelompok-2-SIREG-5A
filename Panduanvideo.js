@@ -3,32 +3,23 @@ import { View, Text, TextInput, Image, TouchableOpacity, StatusBar, StyleSheet }
 import { LinearGradient } from 'expo-linear-gradient';
 import { FontAwesome } from '@expo/vector-icons';
 import Ionicons from '@expo/vector-icons/Ionicons';
-import AntDesign from '@expo/vector-icons/AntDesign';
-import { useNavigation } from '@react-navigation/native';
 
 const CareerGuide = () => {
-  const navigation = useNavigation();
-
   return (
     <View style={styles.container}>
       <StatusBar barStyle="dark-content" />
 
-      {/* Header */}
       <LinearGradient
         colors={['#63ABE6', '#3470A2']}
         start={{ x: 0.1, y: 0 }}
         end={{ x: 1, y: 0 }}
         style={styles.header}
       >
-        {/* Elemen kuning di pojok kiri atas */}
         <View style={styles.yellowCorner} />
-        <TouchableOpacity style={styles.circle} onPress={() => navigation.goBack()}>
-          <AntDesign name="arrowleft" size={20} color="#2A6BA0" />
-        </TouchableOpacity>
+        <Ionicons name="arrow-back" onPress={() => navigation.goBack()} size={24} color="black" style={styles.backIcon} />
         <Text style={styles.panduanKarir}>Panduan Karir</Text>
       </LinearGradient>
 
-      {/* Search Box */}
       <View style={styles.searchContainer}>
         <View style={styles.searchBox}>
           <FontAwesome name="search" size={20} color="#b0b0b0" />
@@ -36,67 +27,56 @@ const CareerGuide = () => {
         </View>
       </View>
 
-      {/* Career Guide Section */}
       <View style={styles.careerGuideContainer}>
-        <LinearGradient colors={['#63ABE6', '#3470A2']} style={styles.careerGuideSection}>
+        <LinearGradient
+          colors={['#63ABE6', '#3470A2']}
+          style={styles.careerGuideSection}
+        >
           <View style={styles.careerGuideTextContainer}>
-            <Text style={styles.careerGuideText}>
-              Mulai langkah awal menuju kesuksesan karirmu!
-            </Text>
+            <Text style={styles.careerGuideText}>Mulai langkah awal menuju kesuksesan karirmu!</Text>
             <Image
               source={require('./assets/cewe.png')}
               style={styles.careerGuideImage}
-              resizeMode="contain"
             />
           </View>
           <View style={styles.buttonsContainer}>
             <TouchableOpacity style={styles.artikelButton}>
               <Text style={styles.artikelButtonText}>Artikel</Text>
             </TouchableOpacity>
-            <TouchableOpacity onPress={() => navigation.navigate('Panduanvideo')} style={styles.videoButton}>
+            <TouchableOpacity style={styles.videoButton}>
               <Text style={styles.videoButtonText}>Video</Text>
             </TouchableOpacity>
           </View>
         </LinearGradient>
       </View>
 
-      {/* Recommended Articles */}
       <View style={styles.recommendedArticlesContainer}>
-        <Text style={styles.recommendedArticlesTitle}>Rekomendasi artikel</Text>
+        <Text style={styles.recommendedArticlesTitle}>Rekomendasi Video</Text>
         <View style={styles.articlesRow}>
-          <TouchableOpacity onPress={() => navigation.navigate('Artikel')}>
-            <LinearGradient colors={['#63ABE6', '#3470A2']} style={styles.articleCard}>
-              <Image
-                source={require('./assets/video1.png')} 
-                style={styles.articleImage}
-              />
-              <View style={styles.articleTextContainer}>
-                <Text style={styles.articleTitle}>Tata Cara Wawancara</Text>
-                <Text style={styles.articleDescription}>
-                Wawancara menjadi hal terpenting dalam pengalaman magangmu, penasaran? Simak video ini!
-                </Text>
-              </View>
-            </LinearGradient>
-          </TouchableOpacity>
+          <LinearGradient
+            colors={['#63ABE6', '#3470A2']} 
+            style={styles.articleCard}>
+            <Image style={styles.profileImage} source={require('./assets/video1.png')} />
+            <View style={styles.articleTextContainer}>
+              <Text style={styles.articleTitle}>Tata Cara Wawancara</Text>
+              <Text style={styles.articleDescription}>Wawancara menjadi hal terpenting dalam pengalaman magangmu, penasaran? Simak video ini!</Text>
+            </View>
+          </LinearGradient>
 
-          <TouchableOpacity onPress={() => navigation.navigate('Artikel')}>
-            <LinearGradient colors={['#63ABE6', '#3470A2']} style={styles.articleCard}>
-              <Image
-                source={require('./assets/video2.png')} 
-                style={styles.articleImage}
-              />
-              <View style={styles.articleTextContainer}>
-                <Text style={styles.articleTitle}>Tata Cara Wawancara</Text>
-                <Text style={styles.articleDescription}>
-                Wawancara menjadi hal terpenting dalam pengalaman magangmu, penasaran? Simak video ini!
-                </Text>
-              </View>
-            </LinearGradient>
-          </TouchableOpacity>
+          <LinearGradient
+            colors={['#63ABE6', '#3470A2']} 
+            style={styles.articleCard} 
+          >
+            <Image style={styles.profileImage} source={require('./assets/video2.png')} />
+            <View style={styles.articleTextContainer}>
+            <Text style={styles.articleTitle}>Tata Cara Wawancara</Text>
+              <Text style={styles.articleDescription}>Wawancara menjadi hal terpenting dalam pengalaman magangmu, penasaran? Simak video ini!</Text>
+            </View>
+          </LinearGradient>
+          
         </View>
       </View>
 
-      {/* Bottom Navigation */}
       <View style={styles.bottomNavigation}>
         <TouchableOpacity style={styles.navItem}>
           <FontAwesome name="home" size={24} color="#FFD500" />
@@ -148,32 +128,22 @@ const styles = StyleSheet.create({
     height: 130,
     backgroundColor: '#FFD500',
     borderBottomRightRadius: 500,
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'space-between',
   },
   panduanKarir: {
     fontSize: 35,
     fontWeight: 'bold',
     color: 'white',
     textAlign: 'right',
-    position: 'absolute', 
-    top: 50, 
-    right: 20, 
+    marginTop: 35,
   },
-  circle: {
-    width: 36,
-    height: 36,
-    borderRadius: 18,
-    backgroundColor: '#FFFF',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginLeft: 20,
-    marginTop: 30,
+  backIcon: {
+    position: 'absolute',
+    left: 20,
+    top: 20,
   },
   searchContainer: {
     marginHorizontal: 20,
-    marginTop: 15,
+    marginTop: 25, 
   },
   searchBox: {
     backgroundColor: 'white',
@@ -194,8 +164,8 @@ const styles = StyleSheet.create({
   },
   careerGuideContainer: {
     marginHorizontal: 20,
-    marginTop: 20,
-    flex: 1,
+    marginTop: 30, 
+    flex: 1, 
   },
   careerGuideSection: {
     borderRadius: 15,
@@ -213,111 +183,128 @@ const styles = StyleSheet.create({
   },
   careerGuideText: {
     color: 'white',
-    fontSize: 24,
+    fontSize: 25,
     fontWeight: 'bold',
-    width: '65%',
+    width: '55%',
   },
   careerGuideImage: {
     width: 170,
+    bottom:-65,
+    position:'absolute',
+    marginleft:190,
+    right:-25,
     height: 170,
-    bottom: -65,
-    position: 'absolute',
-    marginLeft: 180,
+    borderRadius: 15,
   },
   buttonsContainer: {
     flexDirection: 'row',
     marginTop: 15,
   },
   artikelButton: {
-    backgroundColor: '#1e40af',
+    backgroundColor: '#FFD500',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 20,
     marginRight: 10,
   },
   artikelButtonText: {
-    color: '#FFD500',
+    color: '#1d4ed8',
     fontWeight: 'bold',
   },
   videoButton: {
-    backgroundColor: '#FFD500',
+    backgroundColor: '#1e40af',
     paddingVertical: 10,
     paddingHorizontal: 20,
     borderRadius: 20,
   },
   videoButtonText: {
-    color: '#1d4ed8',
+    color: 'white',
     fontWeight: 'bold',
   },
   recommendedArticlesContainer: {
-    marginHorizontal: 20,
-    paddingBottom: 130,
+    marginHorizontal: 30,
+    marginTop: 5, 
+    paddingBottom: 50, 
   },
   recommendedArticlesTitle: {
-    fontSize: 18,
-    fontWeight: 'bold',
-    marginBottom: 10,
+    fontSize: 30, 
+    fontWeight: 'bold', 
+    marginBottom: 20, 
+    color: '#000', 
   },
+  
+  articleTitle: {
+    fontSize: 29, 
+    fontWeight: '900', 
+    color: '#fff', 
+    marginBottom: 8, 
+  },
+  
+  articleDescription: {
+    fontSize: 12, 
+    color: '#fff', 
+    textAlign: 'justify',
+  },
+  
   articlesRow: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-around', 
+    paddingHorizontal: 0, 
   },
   articleCard: {
-    borderRadius: 15,
-    padding: 10,
+    width: '49%',
+    marginHorizontal:20,
+    borderRadius: 18,
+    padding: 15,
+    marginBottom: 20, 
     shadowColor: '#000',
     shadowOpacity: 0.1,
-    shadowRadius: 10,
-    elevation: 5, 
-    width: 180,
-    height: 250
+    shadowRadius: 15,
+    elevation: 5,
+    marginRight: 40,
   },
-  articleImage: {
-    width: 160,
-    height: 100,
-    borderRadius: 10,
-    marginBottom: 10,
+
+  profileImage: {
+    width: '100%', 
+    height: 110, 
+    resizeMode: 'cover', 
+    borderRadius: 10, 
+    marginBottom: 10, 
   },
   articleTextContainer: {
-    flex: 1,
+    padding: 10,
   },
   articleTitle: {
     fontWeight: 'bold',
     color: 'white',
-    marginBottom: 5,
-    textAlign: 'center',
   },
   articleDescription: {
-    color: 'white',
     fontSize: 12,
-    textAlign: 'center',
+    color: 'white',
   },
   bottomNavigation: {
     flexDirection: 'row',
     justifyContent: 'space-around',
     alignItems: 'center',
+    height: 70,
     backgroundColor: 'white',
-    paddingVertical: 10,
-    borderTopWidth: 1,
-    borderTopColor: '#e5e7eb',
-    position: 'absolute',
-    bottom: 0,
-    width: '100%',
+    shadowColor: '#000',
+    shadowOpacity: 0.2,
+    shadowRadius: 5,
+    elevation: 5,
   },
   navItem: {
-    justifyContent: 'center',
     alignItems: 'center',
   },
   navTextActive: {
-    color: '#FFD500',
     fontSize: 12,
-    fontWeight: 'bold',
+    color: '#FFD500',
   },
   navText: {
-    color: '#9ca3af',
     fontSize: 12,
-    fontWeight: 'bold',
+    color: '#9ca3af',
   },
 });
+
 
 export default CareerGuide;
