@@ -3,7 +3,7 @@ import { db } from './firebase-config';
 
 export async function saveAnswer(userID, jawaban) {
   try {
-    // Ensure 'answers' is the correct collection name in Firestore
+   
     const docRef = await addDoc(collection(db, "jawaban"), {
       userID: userID,
       jawaban: jawaban,

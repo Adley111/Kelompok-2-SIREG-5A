@@ -24,7 +24,6 @@ const Regis = () => {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       const user = userCredential.user;
   
-      // Kirim email verifikasi
       await sendEmailVerification(user);
       Alert.alert(
         'Registrasi Berhasil',

@@ -70,7 +70,7 @@ const Semuajawaban = ({ navigation }) => {
               data={answers}
               keyExtractor={(item) => item.id}
               renderItem={renderAnswerCard}
-              scrollEnabled={false} // Disable scroll in FlatList since ScrollView handles it
+              scrollEnabled={true} 
             />
           )}
         </ScrollView>

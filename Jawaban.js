@@ -24,7 +24,7 @@ const Jawaban = ({ navigation }) => {
           text: "Ya",
           onPress: async () => {
             try {
-              await saveAnswer("user123", answer); // Ganti user123 dengan ID pengguna yang sesuai
+              await saveAnswer("user123", answer); 
               Alert.alert("Sukses", "Jawaban berhasil dikirim!");
               setAnswer('');
               navigation.navigate('Jawabansend');
