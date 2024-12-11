@@ -4,7 +4,6 @@ import { LinearGradient } from 'expo-linear-gradient';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { fetchAnswers, saveAnswer } from './firebase/save-answer.js';
-import 'dotenv/config';
 import Regis from './Regis';
 import Login from './Login';
 import Dashboard from './Dashboard';
